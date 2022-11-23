@@ -7,6 +7,7 @@ All you need to do is download exe file and go!\
 
 # Requirement for user
 * Windows 10
+* JRE 1.8.0
 * User needs to prepare set of images and annotation data.
 
 # General Features
@@ -54,18 +55,49 @@ If you need to setup exe, please contact me.
 step by step manual is available here\
 https://drive.google.com/file/d/1mZkj5jhdDJcANsP8xcHKdmlPNxeHcmXM/view?usp=sharing
 
-# Guide Video
-User guid video is available here in youtube\
-//(link)
-
 # Requirements and specification for developer
-* Tensorflow environment installed in Ubuntu 16.04.6 LTS
-* Anaconda environment version 4.7.11 installed to establish Tensorflow virtual environment
-* CUDA version: 10.2
-* Tensorflow version: 1.14
-* Python version: 3.5.6
+* Tensorflow environment installed in Ubuntu 20.04.5 LTS
+* Anaconda environment version 22.9.0 installed to establish Tensorflow virtual environment
+* CUDA version: 11.4
+* Tensorflow version: 2.10.0
+* Python version: 3.8.13
 * Pre-trained models: COCO dataset
-* PygIDE tested within Windows 10
+* opencv-python==4.6.0.66
+* opencv-python-headless==4.6.0.66
+* PygIDE tested within Windows 10 and jre 1.8.0
+
+
+# Setup server-side
+~~~
+mkdir env_name
+~~~
+~~~
+conda create -n env_name python==3.8
+~~~
+~~~
+pip install tensorflow==2.* cython
+~~~
+~~~
+cd ~/tensorflowGUI/env_name/models/research/cocoapi/PythonAPI
+~~~
+~~~
+make
+~~~
+~~~
+cp -r pycocotools ../../
+~~~
+~~~
+cd models/research/
+~~~
+~~~
+python -m pip install .
+~~~
+~~~
+cp builder.py /home/tfgraf/anaconda3/envs/{env_name}/lib/python3.8/site-packages/google/protobuf/internal/
+~~~
+~~~
+python object_detection/builders/model_builder_tf2_test.py
+~~~
 
 # News
 PygIDE 1.0 was initially released on Github in 24th of Apr 2020.
