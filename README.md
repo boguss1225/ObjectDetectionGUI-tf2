@@ -103,7 +103,10 @@ python object_detection/builders/model_builder_tf2_test.py
 ~~~
 
 # News
-PygIDE 1.0 was initially released on Github in 24th of Apr 2020.
+- PygIDE 1.0 was initially released on Github in 24th of Apr 2020.
+- PygIDE is renamed as TFGraF
+- Hidden Function added : Entering '-1' on gpu selection in 'start training' dialog will make the training run on CPU
+- Hidden Function added 2 : Entering '@1' in thickness when you inference image will make the training run on GPU #1 otherwise, run on CPU
 
 # Request
 Please email us if you need more information or free account\

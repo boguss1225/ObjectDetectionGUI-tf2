@@ -26,6 +26,14 @@ conda info|egrep "conda version|active environment"
 #export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 #export PATH=$PATH:PYTHONPATH
 
+#hidden function (GPU enable)
+default_gpu=-1
+thickness=$3 
+if [[ $3 == *"@"* ]]; then
+        default_gpu=`echo $3 | cut -d'@' -f 2`
+        thickness=`echo $3 | cut -d'@' -f 1`
+fi
+
 # repeat as many as num of files
 for i in "${PARAMETERS[@]:4}"; do
 
@@ -57,7 +65,7 @@ do
 	# edit util setting
         if [[ $line == "# Edit_Settings" ]]; then
 		read line
-                `sed -i "/$line/c\    line_thickness=$3, ###" ~/tensorflowGUI/$1/models/research/object_detection/Object_detection_image_tf2.py`
+                `sed -i "/$line/c\    line_thickness=$thickness, ###" ~/tensorflowGUI/$1/models/research/object_detection/Object_detection_image_tf2.py`
 		read line
 		`sed -i "/$line/c\    min_score_thresh=$4, ###" ~/tensorflowGUI/$1/models/research/object_detection/Object_detection_image_tf2.py`
 		break
@@ -66,7 +74,7 @@ done < ~/tensorflowGUI/$1/models/research/object_detection/Object_detection_imag
 
 # Run Training
 cd ~/tensorflowGUI/$1/models/research/object_detection/
-export CUDA_VISIBLE_DEVICES=-1 && python Object_detection_image_tf2.py
+export CUDA_VISIBLE_DEVICES=$default_gpu && python Object_detection_image_tf2.py
 
 done
 
