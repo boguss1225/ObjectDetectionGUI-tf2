@@ -154,7 +154,7 @@ public class Detect{
 			@Override
 			public void actionPerformed(ActionEvent ae){
 				//get values from text field
-				thickness_input = l2txtfld.getText().trim();
+				String thickness_input = l2txtfld.getText().trim();
 				thickness = Integer.parseInt(thickness_input);
 				min_score_thresh = Double.parseDouble(l3txtfld.getText().trim());
 				
