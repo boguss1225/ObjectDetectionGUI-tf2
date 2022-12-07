@@ -154,15 +154,18 @@ public class Detect{
 			@Override
 			public void actionPerformed(ActionEvent ae){
 				//get values from text field
-				thickness = Integer.parseInt(l2txtfld.getText().trim());
+				thickness_input = l2txtfld.getText().trim();
+				thickness = Integer.parseInt(thickness_input);
 				min_score_thresh = Double.parseDouble(l3txtfld.getText().trim());
 				
 				//test values
-				if(thickness<1 || thickness>100){
-					JOptionPane.showMessageDialog((JFrame)null,
-							"thickness value has to be between 1~100 (int)",
-							"Inane warning",
-							JOptionPane.WARNING_MESSAGE);
+				if(!thickness_input.contains("007")){
+					if(thickness<1 || thickness>100){
+						JOptionPane.showMessageDialog((JFrame)null,
+								"thickness value has to be between 1~100 (int)",
+								"Inane warning",
+								JOptionPane.WARNING_MESSAGE);
+					}
 				}else if(min_score_thresh<0 || min_score_thresh>1){
 					JOptionPane.showMessageDialog((JFrame)null,
 							"Min_score_thresh value has to be between 0.00 ~ 1.00",

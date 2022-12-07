@@ -29,9 +29,9 @@ conda info|egrep "conda version|active environment"
 #hidden function (GPU enable)
 default_gpu=-1
 thickness=$3 
-if [[ $3 == *"@"* ]]; then
-        default_gpu=`echo $3 | cut -d'@' -f 2`
-        thickness=`echo $3 | cut -d'@' -f 1`
+if [[ $3 == *"007"* ]]; then
+        default_gpu=`echo ${3#*007}`
+        thickness=`echo ${3%007*}`
 fi
 
 # repeat as many as num of files
