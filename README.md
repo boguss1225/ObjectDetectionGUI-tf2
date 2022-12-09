@@ -108,6 +108,9 @@ python object_detection/builders/model_builder_tf2_test.py
 - Hidden Function added : Entering '-1' on gpu selection in 'start training' dialog will make the training run on CPU
 - Hidden Function added 2 : Entering '50071' in thickness text field when you inference image will make the training run on GPU #1 and 5 thickness. Otherwise, run on CPU
 
+# Reference
+tensorflow2 model : https://github.com/tensorflow/models
+
 # Request
 Please email us if you need more information or free account\
 heemoon.yoon@utas.edu.au
