@@ -109,8 +109,8 @@ python object_detection/builders/model_builder_tf2_test.py
 - Hidden Function added 2 : Entering '50071' in thickness text field when you inference image will make the training run on GPU #1 and 5 thickness. Otherwise, run on CPU
 
 # Reference
-tensorflow2 model : https://github.com/tensorflow/models
-
+tensorflow2 model : https://github.com/tensorflow/models \
+coco api : https://github.com/cocodataset/cocoapi
 # Request
 Please email us if you need more information or free account\
 heemoon.yoon@utas.edu.au
